@@ -2,7 +2,7 @@
 using System.Xml.Linq;
 using static espverbs.Domain.Props;
 
-namespace Domain.Words.Verbs.Mutations
+namespace espverbs.Domain.Words.Verbs.Mutations
 {
     public class VerbsMutationBase
     {

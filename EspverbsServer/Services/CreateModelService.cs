@@ -1,12 +1,8 @@
-﻿namespace Server.Services
+﻿namespace espverbs.Server.Services
 {
-    using espverbs.Domain;
     using static espverbs.Domain.Props;
     using System.Text.RegularExpressions;
-    using System.Text;
-    using System.Reflection.Metadata.Ecma335;
-
-    using Domain.Words.Verbs;
+    using espverbs.Domain.Words.Verbs;
 
     public static class CreateModelService
     {

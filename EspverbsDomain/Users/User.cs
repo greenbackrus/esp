@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Users
+namespace espverbs.Domain.Users
 {
     public class User
     {
@@ -22,9 +22,17 @@ namespace Domain.Users
         // TODO: Добавить валидацию почты
         public string? Login { get; set; }
 
+        public Roles Role { get; set; } = Roles.User;
+
         [Required(ErrorMessage = "Для пользователя должно быть указано поле '{0}'.")]
         [Display(Name = "Пароль")]
         [MinLength(5, ErrorMessage = "Пароль должен быть не короче 5 символов")]
         public string? Password { get; set; }
+
+        public enum Roles
+        {
+            Admin,
+            User,
+        }
     }
 }

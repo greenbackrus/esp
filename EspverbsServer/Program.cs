@@ -1,3 +1,9 @@
+using espverbs.Server.Services.AuthServices;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.Net.Http.Headers;
+
 namespace espverbs.Server
 {
     public class Program
@@ -6,8 +12,52 @@ namespace espverbs.Server
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            builder.Services.AddAuthentication(
+                options =>
+                {
+                    options.DefaultScheme = "jwt_or_cookie_selector";
+                    options.DefaultChallengeScheme = "jwt_or_cookie_selector";
+                })
+                .AddCookie(options =>
+                {
+                    options.LoginPath = "/Login";
+                    options.ExpireTimeSpan = TimeSpan.FromDays(1);
+                })
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidIssuer = AuthOptionsDev.Issuer,
+                        ValidAudience = AuthOptionsDev.Audience,
+                        IssuerSigningKey = AuthOptionsDev.GetSymmetricSecurityKey(),
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                    };
+                })
+
+                // custom scheme switches beetween bearer and cookies
+                .AddPolicyScheme(
+                "jwt_or_cookie_selector",
+                "jwt_or_cookie_selector",
+                options =>
+                {
+                    options.ForwardDefaultSelector = context =>
+                    {
+                        string authorization = context.Request.Headers[HeaderNames.Authorization];
+                        if (!string.IsNullOrEmpty(authorization) && authorization.StartsWith("Bearer "))
+                        {
+                            return JwtBearerDefaults.AuthenticationScheme;
+                        }
+
+                        return CookieAuthenticationDefaults.AuthenticationScheme;
+                    };
+                });
+
+            builder.Services.AddAuthorization();
             builder.Services.AddControllersWithViews();
+            builder.Services.AddTransient<IAuthService, AuthService>();
 
             var app = builder.Build();
 

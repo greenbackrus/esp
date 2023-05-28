@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using static espverbs.Domain.Props;
 
-namespace Domain.Words.Verbs
+namespace espverbs.Domain.Words.Verbs
 {
     public class Verb : WordBase
     {

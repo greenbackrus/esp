@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Domain.Words
+namespace espverbs.Domain.Words
 {
     public class WordBase
     {

@@ -4,13 +4,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Domain.Words;
-using Domain.Words.Verbs;
-using Domain.Words.Verbs.Mutations;
+using espverbs.Domain.Words;
+using espverbs.Domain.Words.Verbs;
+using espverbs.Domain.Words.Verbs.Mutations;
 using espverbs.Domain;
 using static espverbs.Domain.Props;
 
-namespace Domain.LearningProcess.Tasks
+namespace espverbs.Domain.LearningProcess.Tasks
 {
     public class TypingTask : TaskBase
     {

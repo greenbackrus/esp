@@ -1,8 +1,8 @@
-﻿using Domain.LearningProcess.Tasks;
-using Domain.Users;
+﻿using espverbs.Domain.LearningProcess.Tasks;
+using espverbs.Domain.Users;
 using System.ComponentModel.DataAnnotations;
 
-namespace Domain.LearningProcess
+namespace espverbs.Domain.LearningProcess
 {
     public class LearningSession
     {

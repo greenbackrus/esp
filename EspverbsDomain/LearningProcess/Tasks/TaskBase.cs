@@ -1,8 +1,8 @@
-﻿using Domain.Words;
-using Domain.Words.Verbs.Mutations;
+﻿using espverbs.Domain.Words;
+using espverbs.Domain.Words.Verbs.Mutations;
 using System.ComponentModel.DataAnnotations;
 
-namespace Domain.LearningProcess.Tasks
+namespace espverbs.Domain.LearningProcess.Tasks
 {
     public class TaskBase
     {
