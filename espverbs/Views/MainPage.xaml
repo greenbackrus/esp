@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:vm="clr-namespace:espverbs.ViewModels"
+			 x:Class="espverbs.Views.MainPage"
+			 x:DataType="vm:MainViewModel"
+             BackgroundColor="Black">
+    <Grid RowDefinitions="10*, 5*, 5*, 15*, 20*, 20*, 40*">
+        <Label Text="hablar" Grid.Row="1"
+               FontSize="24"
+               FontAttributes="Bold"
+               TextColor="Green"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+        <Label Text="разговаривать" Grid.Row="2"
+               FontSize="20"
+               FontAttributes="Italic"
+               TextColor="Gray"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+        <Label Text="настоящее завершенное" Grid.Row="3"
+               FontSize="16"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+        <HorizontalStackLayout HorizontalOptions="Center" Grid.Row="4">
+            <Label Text="Tu "
+               FontSize="36"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+            <Entry x:Name="AnswerEntry"
+               FontSize="36"
+               TextColor="Red"
+               IsSpellCheckEnabled="False"
+               IsTextPredictionEnabled="False"
+               Placeholder="..."
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+    </Grid>
+</ContentPage>
