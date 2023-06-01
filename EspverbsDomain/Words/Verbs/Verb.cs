@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
+﻿using System.ComponentModel.DataAnnotations;
 using static espverbs.Domain.Props;
 
 namespace espverbs.Domain.Words.Verbs
 {
     public class Verb : WordBase
     {
+
         [Required(ErrorMessage = "Для слова должно быть указано поле '{0}'.")]
         [MinLength(2)]
         [MaxLength(12)]

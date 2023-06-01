@@ -1,0 +1,51 @@
+﻿@model espverbs.Domain.Words.Verbs.Mutations.RegularVerbsMutation
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>RegularVerbsMutation</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Prefix)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Prefix)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ending)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ending)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PronounForm)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PronounForm)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VerbConjugationType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VerbConjugationType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tense)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tense.Description)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

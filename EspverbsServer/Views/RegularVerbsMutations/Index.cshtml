@@ -1,0 +1,59 @@
+﻿@model IEnumerable<espverbs.Domain.Words.Verbs.Mutations.RegularVerbsMutation>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Prefix)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ending)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PronounForm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VerbConjugationType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tense)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prefix)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ending)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PronounForm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VerbConjugationType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tense.Description)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

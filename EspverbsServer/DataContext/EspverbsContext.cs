@@ -1,12 +1,26 @@
-﻿using Microsoft.EntityFrameworkCore;
-using espverbs.Server.Helpers;
+﻿using espverbs.Domain.LearningProcess;
+using espverbs.Domain.LearningProcess.Tasks;
 using espverbs.Domain.Users;
+using espverbs.Domain.Words.Verbs;
+using espverbs.Domain.Words.Verbs.Mutations;
+using espverbs.Server.Helpers;
+using Microsoft.EntityFrameworkCore;
 
 namespace espverbs.Server.DataContext
 {
     public class EspverbsContext : DbContext
     {
+        // User-related records
         public DbSet<User> Users { get; set; }
+
+        // Language-related records
+        public DbSet<Verb> Verbs { get; set; }
+        public DbSet<Tense> Tenses { get; set; }
+        public DbSet<RegularVerbsMutation> RegularVerbsMutations { get; set; }
+
+        // Learning process-related records
+        public DbSet<LearningSession> LearningSessions { get; set; }
+        public DbSet<TypingTask> TypingTasks { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -1,0 +1,42 @@
+﻿@model espverbs.Domain.Words.Verbs.Verb
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Verb</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Root)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Root)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ending)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ending)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ConjugationType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ConjugationType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Word)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Word)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

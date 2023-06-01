@@ -1,8 +1,12 @@
+using espverbs.Server.DataContext;
 using espverbs.Server.Services.AuthServices;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.Net.Http.Headers;
+using Server;
+using Server.Services.UserServices;
+using Server.Services.WordServices;
 
 namespace espverbs.Server
 {
@@ -57,7 +61,14 @@ namespace espverbs.Server
 
             builder.Services.AddAuthorization();
             builder.Services.AddControllersWithViews();
+            builder.Services.AddAutoMapper(typeof(MappingProfile));
+
+            //Add IoC containers
+            builder.Services.AddTransient<EspverbsContext>();
             builder.Services.AddTransient<IAuthService, AuthService>();
+            builder.Services.AddTransient<IUserService, UserService>();
+            builder.Services.AddTransient<IVerbService, VerbService>();
+            builder.Services.AddTransient<IRegularVerbsMutationService, RegularVerbsMutationService>();
 
             var app = builder.Build();
 
@@ -73,7 +84,7 @@ namespace espverbs.Server
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(

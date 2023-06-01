@@ -1,0 +1,54 @@
+﻿@model espverbs.Domain.Words.Verbs.Mutations.RegularVerbsMutation
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>RegularVerbsMutation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Prefix" class="control-label"></label>
+                <input asp-for="Prefix" class="form-control" />
+                <span asp-validation-for="Prefix" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ending" class="control-label"></label>
+                <input asp-for="Ending" class="form-control" />
+                <span asp-validation-for="Ending" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="PronounForm" class="control-label"></label>
+                <select asp-for="PronounForm" class="form-control"></select>
+                <span asp-validation-for="PronounForm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VerbConjugationType" class="control-label"></label>
+                <select asp-for="VerbConjugationType" class="form-control"></select>
+                <span asp-validation-for="VerbConjugationType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenseId" class="control-label"></label>
+                <select asp-for="TenseId" class="form-control" asp-items="ViewBag.TenseId"></select>
+                <span asp-validation-for="TenseId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

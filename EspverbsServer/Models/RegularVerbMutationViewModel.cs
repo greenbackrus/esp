@@ -1,10 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using espverbs.Domain.Words.Verbs;
 using static espverbs.Domain.Props;
+using System.ComponentModel.DataAnnotations;
 
-namespace espverbs.Domain.Words.Verbs.Mutations
+namespace Server.Models
 {
-    public class VerbsMutationBase
+    public class RegularVerbMutationViewModel
     {
+        [Required]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Для мутации должно быть указано поле '{0}'.")]
@@ -18,6 +20,11 @@ namespace espverbs.Domain.Words.Verbs.Mutations
         [Required(ErrorMessage = "Для мутации должно быть указано поле '{0}'.")]
         [Display(Name = "Время")]
         public Tense Tense { get; set; }
-        public int TenseId { get; set; }
+
+        [Display(Name = "Префикс")]
+        public string Prefix { get; set; } = string.Empty;
+
+        [Display(Name = "Окончание")]
+        public string Ending { get; set; } = string.Empty;
     }
 }

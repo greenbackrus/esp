@@ -11,6 +11,7 @@ namespace espverbs.Domain.LearningProcess
         [Required]
         [Display(Name = "Пользователь")]
         public User User { get; set; }
+        public int UserId { get; set; }
 
         [Required]
         [Display(Name = "Задания")]

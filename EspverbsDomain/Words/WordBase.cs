@@ -5,6 +5,7 @@ namespace espverbs.Domain.Words
     public class WordBase
     {
         public int Id { get; set; }
+
         [Required(ErrorMessage = "Для слова должно быть указано поле '{0}'.")]
         [MinLength(2)]
         [MaxLength(12)]

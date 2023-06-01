@@ -6,7 +6,6 @@ using System.Security.Claims;
 using espverbs.Domain.Users;
 using espverbs.Server.Helpers;
 using espverbs.Server.DataContext;
-using System.Linq.Expressions;
 
 namespace espverbs.Server.Services.AuthServices
 {
@@ -25,7 +24,7 @@ namespace espverbs.Server.Services.AuthServices
             var _user = GetUserByCredentials(username, password);
             if (_user == null)
             {
-
+                throw new Exception();
             }
 
             var _claims = CreateClaims(_user);
@@ -38,7 +37,7 @@ namespace espverbs.Server.Services.AuthServices
             var _user = GetUserByCredentials(username, password);
             if (_user == null)
             {
-
+                throw new Exception();
             }
 
             var _claims = CreateClaims(_user);
