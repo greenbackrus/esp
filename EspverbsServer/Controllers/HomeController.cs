@@ -15,7 +15,12 @@ namespace espverbs.Server.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                return View();
+            }
+
+            return RedirectToAction("Login", "Auth");
         }
 
         public IActionResult Privacy()

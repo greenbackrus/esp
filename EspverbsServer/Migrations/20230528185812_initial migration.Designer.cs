@@ -12,7 +12,7 @@ namespace Server.Migrations
 {
     [DbContext(typeof(EspverbsContext))]
     [Migration("20230528185812_initial migration")]
-    partial class initialmigration
+    partial class Initialmigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

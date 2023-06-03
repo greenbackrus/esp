@@ -86,11 +86,11 @@ namespace espverbs.Server
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-
-            app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
-
+            
+            #pragma warning disable ASP0014
+            app.UseEndpoints(Routes.ConfigureRoutes);
+            #pragma warning restore ASP0014
+            
             app.Run();
         }
     }
