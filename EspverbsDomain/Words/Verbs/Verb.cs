@@ -5,7 +5,6 @@ namespace espverbs.Domain.Words.Verbs
 {
     public class Verb : WordBase
     {
-
         [Required(ErrorMessage = "Для слова должно быть указано поле '{0}'.")]
         [MinLength(2)]
         [MaxLength(12)]

@@ -1,7 +1,7 @@
-﻿using espverbs.Server.DataContext;
-using Microsoft.EntityFrameworkCore;
-using Domain;
+﻿using Domain;
 using espverbs.Domain.Words.Verbs.Mutations;
+using espverbs.Server.DataContext;
+using Microsoft.EntityFrameworkCore;
 
 namespace Server.Services.WordServices
 {

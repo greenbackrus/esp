@@ -1,6 +1,24 @@
-﻿namespace Server.Models
+﻿using static espverbs.Domain.Props;
+using System.ComponentModel.DataAnnotations;
+
+namespace Server.Models
 {
     public class VerbViewModel
     {
+        [Required(ErrorMessage = "Для слова должно быть указано поле '{0}'.")]
+        [MinLength(2)]
+        [MaxLength(12)]
+        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "Можно использовать только буквы.")]
+        [Display(Name = "Корень")]
+        public string Root { get; set; }
+
+        [MaxLength(12)]
+        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "Можно использовать только буквы.")]
+        [Display(Name = "Окончание")]
+        public string Ending { get; set; }
+
+        [Required(ErrorMessage = "Для слова должно быть указано поле '{0}'.")]
+        [Display(Name = "Тип спряжения")]
+        public VerbConjugationTypes ConjugationType { get; set; } = VerbConjugationTypes.Irregular;
     }
 }
