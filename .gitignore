@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/EspverbsServer/espverbs_base.db-wal
+/EspverbsServer/espverbs_base.db-shm
