@@ -1,5 +1,4 @@
 ﻿using Domain;
-using espverbs.Domain.Words.Tenses;
 using espverbs.Domain.Words.Verbs;
 using espverbs.Server.DataContext;
 using Microsoft.EntityFrameworkCore;
