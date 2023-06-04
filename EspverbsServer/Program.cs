@@ -68,6 +68,7 @@ namespace espverbs.Server
             builder.Services.AddTransient<IAuthService, AuthService>();
             builder.Services.AddTransient<IUserService, UserService>();
             builder.Services.AddTransient<IVerbService, VerbService>();
+            builder.Services.AddTransient<ITenseService, TenseService>();
             builder.Services.AddTransient<IRegularVerbsMutationService, RegularVerbsMutationService>();
 
             var app = builder.Build();
@@ -86,11 +87,11 @@ namespace espverbs.Server
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-            
-            #pragma warning disable ASP0014
-            app.UseEndpoints(Routes.ConfigureRoutes);
-            #pragma warning restore ASP0014
-            
+
+            app.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");
+
             app.Run();
         }
     }

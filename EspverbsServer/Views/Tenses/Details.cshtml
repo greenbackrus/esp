@@ -1,13 +1,13 @@
 ﻿@model espverbs.Domain.Words.Verbs.Tense
-
+@using Server.Helpers
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>@ResourceHelper.GetString("TenseCaption")</h1>
 
 <div>
-    <h4>Tense</h4>
+    <h4>@ResourceHelper.GetString("TenseCaption")</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -31,6 +31,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">@ResourceHelper.GetString("EditButton")</a> |
+    <a asp-action="Index">@ResourceHelper.GetString("BackButton")</a>
 </div>

@@ -1,13 +1,14 @@
 ﻿@model espverbs.Domain.Words.Verbs.Verb
+@using Server.Helpers
 
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>@ResourceHelper.GetString("DetailsCaption")</h1>
 
 <div>
-    <h4>Verb</h4>
+    <h4>@ResourceHelper.GetString("VerbCaption")</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -37,6 +38,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">@ResourceHelper.GetString("EditButton")</a> |
+    <a asp-action="Index">@ResourceHelper.GetString("BackButton")</a>
 </div>

@@ -1,12 +1,13 @@
 ﻿@model espverbs.Domain.Users.User
+@using Server.Helpers
 
 @{
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>@ResourceHelper.GetString("CreateCaption")</h1>
 
-<h4>User</h4>
+<h4>@ResourceHelper.GetString("UserCaption")</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -33,14 +34,14 @@
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value=@ResourceHelper.GetString("CreateButton") class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">@ResourceHelper.GetString("BackButton")</a>
 </div>
 
 @section Scripts {

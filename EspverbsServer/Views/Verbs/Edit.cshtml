@@ -1,12 +1,13 @@
 ﻿@model espverbs.Domain.Words.Verbs.Verb
+@using Server.Helpers
 
 @{
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>@ResourceHelper.GetString("EditCaption")</h1>
 
-<h4>Verb</h4>
+<h4>@ResourceHelper.GetString("VerbCaption")</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -34,14 +35,14 @@
                 <span asp-validation-for="Word" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value=@ResourceHelper.GetString("SaveButton") class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">@ResourceHelper.GetString("BackButton")</a>
 </div>
 
 @section Scripts {
